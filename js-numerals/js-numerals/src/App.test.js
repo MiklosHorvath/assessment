@@ -8,32 +8,24 @@ it('renders corectly', () => {
   expect(queryByTestId("submit-button")).toBeTruthy();
 });
 
-it("can solve 0",() =>{
+const checkIfCanSolveNumber = (number, expectedSolution)=>{
   const {queryByTestId} = render(<App/>)
   const soluton = queryByTestId("solution");
   const numInput = queryByTestId("numeric-input");
   const submitButton = queryByTestId("submit-button");
-  fireEvent.change(numInput, {target: {value: "0"}});
+  fireEvent.change(numInput, {target: {value: number}});
   fireEvent.click(submitButton);
-  expect(soluton.textContent).toEqual("zero");
+  expect(soluton.textContent).toEqual(expectedSolution);
+}
+
+it("can solve 0",() =>{
+  checkIfCanSolveNumber("0", "zero");
 })
 
 it("can solve 11",() =>{
-  const {queryByTestId} = render(<App/>)
-  const soluton = queryByTestId("solution");
-  const numInput = queryByTestId("numeric-input");
-  const submitButton = queryByTestId("submit-button");
-  fireEvent.change(numInput, {target: {value: "11"}});
-  fireEvent.click(submitButton);
-  expect(soluton.textContent).toEqual("eleven");
+  checkIfCanSolveNumber("11", "eleven");
 })
 
 it("can solve 19",() =>{
-  const {queryByTestId} = render(<App/>)
-  const soluton = queryByTestId("solution");
-  const numInput = queryByTestId("numeric-input");
-  const submitButton = queryByTestId("submit-button");
-  fireEvent.change(numInput, {target: {value: "19"}});
-  fireEvent.click(submitButton);
-  expect(soluton.textContent).toEqual("nineteen");
+  checkIfCanSolveNumber("19", "nineteen");
 })
