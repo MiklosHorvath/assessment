@@ -11,11 +11,43 @@ function App() {
     setNumInput(e.target.value);
   }
 
+  const generateSolutionAtPlaceOne = (number) => {
+    const numbersFromToNine = [
+      "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"
+    ];
+    const inputNumberAsString = number.toString();
+    const lastNumber = parseInt(inputNumberAsString[number.length - 1]);
+    return numbersFromToNine[lastNumber];
+  }
+
+  const generateSolutionAtPlaceTwo = (number) => {
+    const roundNumbersBelowOneHundreed = [
+      "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"
+    ];
+    const inputNumberAsString = number.toString();
+    const lastNumber = parseInt(inputNumberAsString[number.length - 2]);
+    return roundNumbersBelowOneHundreed[lastNumber];
+  }
+
+  const generateDash = (number) => {
+    if(!(number%10===0)){
+      return "-";
+    }
+    else{
+      return "";
+    }      
+  }
+
   const handleSubmit = () => {
-    var numbersFromZeroToNineTeen = [
-      "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-      "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
-    setSolution(numbersFromZeroToNineTeen[numInput]);
+    if(parseInt(numInput)<20){
+      const numbersFromZeroToNineTeen = [
+        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+        "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+      setSolution(numbersFromZeroToNineTeen[numInput]);
+    }
+    else{
+      setSolution(generateSolutionAtPlaceTwo(numInput)+generateDash(numInput)+generateSolutionAtPlaceOne(numInput));
+    }
   }
   return (
     <div className="App">

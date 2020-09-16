@@ -29,3 +29,15 @@ it("can solve 11",() =>{
 it("can solve 19",() =>{
   checkIfCanSolveNumber("19", "nineteen");
 })
+
+it("can solve 20",() =>{
+  checkIfCanSolveNumber("20", "twenty");
+})
+
+it("can solve 42",() =>{
+  checkIfCanSolveNumber("42", "forty-two");
+})
+
+it("can solve 99",() =>{
+  checkIfCanSolveNumber("99", "ninety-nine");
+})
