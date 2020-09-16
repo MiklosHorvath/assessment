@@ -122,8 +122,19 @@ function App() {
     setSolution(thousands[numberOfFirstPart]+ " " + generateSolutionAtFirstThreePlace(number));
   }
 
-  const solveBelowOneMillion = () =>{
-    console.log("solveBelowOneMillion");
+  const generateThousandText = (number) =>{
+    if(generateSolutionAtFirstThreePlace(number)!==""){
+      return " thousand ";
+    }
+    else{
+      return " thousand";
+    }
+  }
+
+  const solveBelowOneMillion = (number) =>{
+    const inputNumberAsString = number.toString();
+    const numberOfFirstPart = parseInt(inputNumberAsString.substring(0, number<100000 ? 2:3));
+    setSolution(generateSolutionAtFirstThreePlace(numberOfFirstPart) + generateThousandText(number) + generateSolutionAtFirstThreePlace(number));
   }
 
   const handleSubmit = () => {

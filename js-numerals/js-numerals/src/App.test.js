@@ -97,3 +97,19 @@ it("can solve 17999",() =>{
 it("can solve 19999",() =>{
   checkIfCanSolveNumber("19999", "nineteen thousand nine hundred and ninety-nine");
 })
+
+it("can solve 20000",() =>{
+  checkIfCanSolveNumber("20000", "twenty thousand");
+})
+
+it("can solve 20142",() =>{
+  checkIfCanSolveNumber("20142", "twenty thousand one hundred and forty-two");
+})
+
+it("can solve 26142",() =>{
+  checkIfCanSolveNumber("26142", "twenty-six thousand one hundred and forty-two");
+})
+
+it("can solve 999999",() =>{
+  checkIfCanSolveNumber("999999", "nine hundred and ninety-nine thousand nine hundred and ninety-nine");
+})
