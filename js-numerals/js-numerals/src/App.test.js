@@ -41,3 +41,27 @@ it("can solve 42",() =>{
 it("can solve 99",() =>{
   checkIfCanSolveNumber("99", "ninety-nine");
 })
+
+it("can solve 100",() =>{
+  checkIfCanSolveNumber("100", "one hundred");
+})
+
+it("can solve 101",() =>{
+  checkIfCanSolveNumber("101", "one hundred and one");
+})
+
+it("can solve 111",() =>{
+  checkIfCanSolveNumber("111", "one hundred and eleven");
+})
+
+it("can solve 120",() =>{
+  checkIfCanSolveNumber("120", "one hundred and twenty");
+})
+
+it("can solve 442",() =>{
+  checkIfCanSolveNumber("442", "four hundred and forty-two");
+})
+
+it("can solve 999",() =>{
+  checkIfCanSolveNumber("999", "nine hundred and ninety-nine");
+})
