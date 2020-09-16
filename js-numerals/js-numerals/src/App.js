@@ -152,10 +152,11 @@ function App() {
   }
   return (
     <div className="App">
-      <input data-testid="numeric-input" id="number" type="number" onChange={handleInputNumberChange}></input>
-      <Button data-testid="submit-button" type="primary" onClick={handleSubmit}>Convert to english text</Button>
-      <br/>
-      <b>in english</b><div data-testid="solution">{solution}</div>
+      <div style={{ marginTop: 30, marginBottom: 10 }}>
+        <input data-testid="numeric-input" id="number" type="number" onChange={handleInputNumberChange} style={{ marginRight: 10 }}></input>
+        <Button data-testid="submit-button" type="primary" onClick={handleSubmit} >Convert to english text</Button>
+      </div>
+      <b style={{ marginBottom: 10 }}>in english:</b><div data-testid="solution">{solution}</div>
     </div>
 
   );
