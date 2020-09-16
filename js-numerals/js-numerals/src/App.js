@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Button } from 'antd';
 
@@ -13,7 +12,16 @@ function App() {
 
   const hundreds = [
     "", "one hundred", "two hundred", "three hundred", "four hundred", "five hundred",
-    "six hundred", "seven hundred", "eight hundred", "nine hundred"
+    "six hundred", "seven hundred", "eight hundred", "nine hundred", "ten hundred",
+    "eleven hundred", "twelve hundred", "thirteen hundred", "fourteen hundred", "fifteen hundred",
+    "sixteen hundred", "seventeen hundred", "eighteen hundred", "nineteen hundred"
+  ];
+
+  const thousands = [
+    "", "one thousand", "two thousand", "three thousand", "four thousand", "five thousand",
+    "six thousand", "seven thousand", "eight thousand", "nine thousand", "ten thousand",
+    "eleven thousand", "twelve thousand", "thirteen thousand", "fourteen thousand", "fifteen thousand",
+    "sixteen thousand", "seventeen thousand", "eighteen thousand", "nineteen thousand"
   ];
 
   const roundNumbersBelowOneHundreed = [
@@ -92,8 +100,44 @@ function App() {
     return solution;
   }
 
+  const solveBelowTwoThousandOneHundred = (number) =>{
+    const inputNumberAsString = number.toString();
+    const numberOfFirstTwoPlace = parseInt(inputNumberAsString.substring(0,2));
+    if(number < 1000){
+      setSolution(generateSolutionAtFirstThreePlace(numInput));
+    }
+    else{
+      setSolution(hundreds[numberOfFirstTwoPlace]+" and " + generateSolutionAtFirstTwoPlace(number));
+    }
+    if((number>=1000 && number<1100)||(number>=2000 && number<2100)){
+      const numberOfFirstPlace = parseInt(inputNumberAsString.substring(0,1));
+      setSolution(thousands[numberOfFirstPlace]+generateSolutionAtFirstThreePlace(numInput))
+    }   
+    
+  }
+
+  const solveBelowTwentyThousand = (number) =>{
+    const inputNumberAsString = number.toString();
+    const numberOfFirstPart = parseInt(inputNumberAsString.substring(0, number<10000 ? 1:2));
+    setSolution(thousands[numberOfFirstPart]+ " " + generateSolutionAtFirstThreePlace(number));
+  }
+
+  const solveBelowOneMillion = () =>{
+    console.log("solveBelowOneMillion");
+  }
+
   const handleSubmit = () => {
-    setSolution(generateSolutionAtFirstThreePlace(numInput));
+    if(numInput<2100){
+      solveBelowTwoThousandOneHundred(numInput);
+    }
+    if (numInput>2099 && numInput < 20000) {
+      solveBelowTwentyThousand(numInput);
+    }
+    if(numInput > 19999){
+      solveBelowOneMillion(numInput);
+    }
+
+    
   }
   return (
     <div className="App">

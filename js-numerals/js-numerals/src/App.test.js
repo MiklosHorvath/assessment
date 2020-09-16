@@ -65,3 +65,35 @@ it("can solve 442",() =>{
 it("can solve 999",() =>{
   checkIfCanSolveNumber("999", "nine hundred and ninety-nine");
 })
+
+it("can solve 1000",() =>{
+  checkIfCanSolveNumber("1000", "one thousand");
+})
+
+it("can solve 1001",() =>{
+  checkIfCanSolveNumber("1001", "one thousand and one");
+})
+
+it("can solve 1099",() =>{
+  checkIfCanSolveNumber("1099", "one thousand and ninety-nine");
+})
+
+it("can solve 1999",() =>{
+  checkIfCanSolveNumber("1999", "nineteen hundred and ninety-nine");
+})
+
+it("can solve 2001",() =>{
+  checkIfCanSolveNumber("2001", "two thousand and one");
+})
+
+it("can solve 2099",() =>{
+  checkIfCanSolveNumber("2099", "two thousand and ninety-nine");
+})
+
+it("can solve 17999",() =>{
+  checkIfCanSolveNumber("17999", "seventeen thousand nine hundred and ninety-nine");
+})
+
+it("can solve 19999",() =>{
+  checkIfCanSolveNumber("19999", "nineteen thousand nine hundred and ninety-nine");
+})
